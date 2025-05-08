@@ -94,7 +94,7 @@
         {
           default = self.devShells.${system}.${projectName};
 
-          "${projectName}" = pkgs.mkShellNoCC {
+          "${projectName}" = pkgs.mkShell {
             inherit (self.checks.${system}.pre-commit) shellHook;
 
             buildInputs =

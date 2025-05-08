@@ -17,4 +17,3 @@
  (name hello)
  (synopsis "A short greeting")
  (depends ocaml dune))
-
