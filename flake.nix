@@ -55,6 +55,10 @@
           "${projectName}" = {
             type = "app";
             program = "${self.packages.${system}.${projectName}}/bin/${projectName}";
+            meta = {
+              description = "Dune flake template";
+              mainProgram = self.packages.${system}.${projectName};
+            };
           };
         }
       );
