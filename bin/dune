@@ -1,4 +1,5 @@
 (executable
  (public_name hello)
  (name main)
+ (package hello)
  (libraries hello))

@@ -62,7 +62,11 @@
       checks = eachSystem (
         { pkgs, system }:
         {
-          "${projectName}" = self.packages.${system}.hello;
+          "${projectName}" = self.packages.${system}.default.overrideAttrs (oldAttrs: {
+            name = "${projectName}-tests";
+            doCheck = true;
+            buildInputs = with pkgs; [ ocamlPackages.alcotest ] ++ (oldAttrs.buildInputs or [ ]);
+          });
 
           pre-commit-check = inputs.pre-commit-hooks.lib.${system}.run {
             src = ./.;
@@ -98,7 +102,8 @@
                 ocamlPackages.utop
                 nixd
               ]
-              ++ self.checks.${system}.pre-commit-check.enabledPackages;
+              ++ self.checks.${system}.pre-commit-check.enabledPackages
+              ++ self.checks.${system}.${projectName}.buildInputs;
           };
         }
       );

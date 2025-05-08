@@ -1,2 +1,4 @@
 (test
- (name test_hello))
+ (name test_hello)
+ (package hello)
+ (libraries alcotest hello))
