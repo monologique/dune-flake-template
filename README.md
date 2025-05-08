@@ -2,11 +2,14 @@
 
 [![built with nix][nix-badge]][nix-url]
 [![License: MIT][license-badge]][license-url]
+[![ci workflow][ci-badge]][ci-url]
 
 [nix-badge]: https://img.shields.io/static/v1?logo=nixos&logoColor=white&label=&message=Built%20with%20Nix&color=41439a
 [nix-url]: https://builtwithnix.org
 [license-badge]: https://img.shields.io/badge/License-MIT-yellow.svg 
 [license-url]: https://opensource.org/licenses/MIT
+[ci-badge]: https://github.com/monologique/dune-flake-template/actions/workflows/ci.yml/badge.svg
+[ci-url]: https://github.com/monologique/dune-flake-template/actions/workflows/ci.yml
 
 A minimal yet powerful foundation for creating Nix flake templates. Perfect for bootstrapping new projects with consistent tooling and best practices.
 

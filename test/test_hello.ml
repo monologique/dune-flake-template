@@ -2,7 +2,7 @@ open Alcotest
 
 let test_say_hello () =
   let result = Hello.say "World!" in
-  check string "should return hello message" "Hello, Worldd!" result
+  check string "should return hello message" "Hello, World!" result
 
 let () =
   run "Hello, World!"
