@@ -71,6 +71,7 @@
           pre-commit-check = inputs.pre-commit-hooks.lib.${system}.run {
             src = ./.;
             hooks = {
+              actionlint.enable = true;
               deadnix.enable = true;
               flake-checker.enable = true;
               treefmt = {
