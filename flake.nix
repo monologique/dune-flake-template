@@ -2,7 +2,7 @@
   description = "Dune flake template";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs?ref=24.11";
+    nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
     pre-commit-hooks = {
       url = "github:cachix/git-hooks.nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -72,6 +72,7 @@
             src = ./.;
             hooks = {
               deadnix.enable = true;
+              flake-checker.enable = true;
               treefmt = {
                 enable = true;
                 settings.formatters = with pkgs; [
