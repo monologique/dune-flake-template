@@ -8,3 +8,9 @@ includes = ["*.nix"]
 command = "ocamlformat"
 options = ["--inplace"]
 includes = ["*.ml", "*.mli"]
+
+
+[formatter.taplo]
+command = "taplo"
+options = ["fmt"]
+includes = ["*.toml"]

@@ -77,6 +77,7 @@
                 settings.formatters = with pkgs; [
                   nixfmt-rfc-style
                   ocamlPackages.ocamlformat
+                  taplo
                 ];
               };
             };
