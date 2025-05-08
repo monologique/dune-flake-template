@@ -1,0 +1,10 @@
+on-unmatched = "info"
+
+[formatter.nix]
+command = "nixfmt"
+includes = ["*.nix"]
+
+[formatter.ocaml]
+command = "ocamlformat"
+options = ["--inplace"]
+includes = ["*.ml", "*.mli"]
