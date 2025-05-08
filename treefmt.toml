@@ -23,3 +23,8 @@ includes = [
   ".github/workflows/*.yaml",
   ".github/workflows/*.yml",
 ]
+
+[formatter.prettier]
+command = "prettier"
+options = ["-w"]
+includes = ["*.md"]

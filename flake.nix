@@ -81,6 +81,7 @@
                   ocamlPackages.ocamlformat
                   taplo
                   yamlfmt
+                  nodePackages.prettier
                 ];
               };
             };

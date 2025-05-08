@@ -6,7 +6,7 @@
 
 [nix-badge]: https://img.shields.io/static/v1?logo=nixos&logoColor=white&label=&message=Built%20with%20Nix&color=41439a
 [nix-url]: https://builtwithnix.org
-[license-badge]: https://img.shields.io/badge/License-MIT-yellow.svg 
+[license-badge]: https://img.shields.io/badge/License-MIT-yellow.svg
 [license-url]: https://opensource.org/licenses/MIT
 [ci-badge]: https://github.com/monologique/dune-flake-template/actions/workflows/ci.yml/badge.svg
 [ci-url]: https://github.com/monologique/dune-flake-template/actions/workflows/ci.yml
@@ -49,7 +49,7 @@ direnv allow
 ## Usage
 
 | Command           | Description                |
-|-------------------|----------------------------|
+| ----------------- | -------------------------- |
 | `nix develop`     | Start development services |
 | `nix fmt`         | Format using treefmt       |
 | `nix flake check` | Run tests suites           |
