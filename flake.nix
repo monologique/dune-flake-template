@@ -78,6 +78,7 @@
                   nixfmt-rfc-style
                   ocamlPackages.ocamlformat
                   taplo
+                  yamlfmt
                 ];
               };
             };
@@ -108,7 +109,6 @@
           };
         }
       );
-
       formatter = eachSystem ({ pkgs, ... }: pkgs.treefmt);
     };
 }

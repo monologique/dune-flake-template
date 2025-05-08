@@ -9,8 +9,17 @@ command = "ocamlformat"
 options = ["--inplace"]
 includes = ["*.ml", "*.mli"]
 
-
 [formatter.taplo]
 command = "taplo"
 options = ["fmt"]
 includes = ["*.toml"]
+
+[formatter.yamlfmt]
+command = "yamlfmt"
+includes = [
+  "*.yaml",
+  "*.yml",
+  ".yamllint",
+  ".github/workflows/*.yaml",
+  ".github/workflows/*.yml",
+]
