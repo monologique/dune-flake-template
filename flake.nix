@@ -62,13 +62,13 @@
       checks = eachSystem (
         { pkgs, system }:
         {
-          "${projectName}" = self.packages.${system}.default.overrideAttrs (oldAttrs: {
+          "dune-tests" = self.packages.${system}.default.overrideAttrs (oldAttrs: {
             name = "${projectName}-tests";
             doCheck = true;
             buildInputs = with pkgs; [ ocamlPackages.alcotest ] ++ (oldAttrs.buildInputs or [ ]);
           });
 
-          pre-commit-check = inputs.pre-commit-hooks.lib.${system}.run {
+          pre-commit = inputs.pre-commit-hooks.lib.${system}.run {
             src = ./.;
             hooks = {
               actionlint.enable = true;
@@ -95,7 +95,7 @@
           default = self.devShells.${system}.${projectName};
 
           "${projectName}" = pkgs.mkShellNoCC {
-            inherit (self.checks.${system}.pre-commit-check) shellHook;
+            inherit (self.checks.${system}.pre-commit) shellHook;
 
             buildInputs =
               with pkgs;
@@ -107,8 +107,8 @@
                 ocamlPackages.utop
                 nixd
               ]
-              ++ self.checks.${system}.pre-commit-check.enabledPackages
-              ++ self.checks.${system}.${projectName}.buildInputs;
+              ++ self.checks.${system}.pre-commit.enabledPackages
+              ++ self.checks.${system}.dune-tests.buildInputs;
           };
         }
       );
