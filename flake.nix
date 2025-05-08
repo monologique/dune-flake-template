@@ -1,5 +1,5 @@
 {
-  description = "Dune stater flake";
+  description = "Dune flake template";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=24.11";
@@ -34,9 +34,11 @@
     {
 
       packages = eachSystem (
-        { pkgs, ... }:
+        { pkgs, system }:
         {
-          default = pkgs.ocamlPackages.buildDunePackage {
+          default = self.packages.${system}.${projectName};
+
+          "${projectName}" = pkgs.ocamlPackages.buildDunePackage {
             pname = projectName;
             version = "0.1.0";
             src = ./.;
@@ -48,9 +50,11 @@
       apps = eachSystem (
         { system, ... }:
         {
-          default = {
+          default = self.apps.${system}.${projectName};
+
+          "${projectName}" = {
             type = "app";
-            program = "${self.packages.${system}.default}/bin/${projectName}";
+            program = "${self.packages.${system}.${projectName}}/bin/${projectName}";
           };
         }
       );
@@ -58,6 +62,8 @@
       checks = eachSystem (
         { pkgs, system }:
         {
+          "${projectName}" = self.packages.${system}.hello;
+
           pre-commit-check = inputs.pre-commit-hooks.lib.${system}.run {
             src = ./.;
             hooks = {
@@ -77,7 +83,9 @@
       devShells = eachSystem (
         { pkgs, system }:
         {
-          default = pkgs.mkShellNoCC {
+          default = self.devShells.${system}.${projectName};
+
+          "${projectName}" = pkgs.mkShellNoCC {
             inherit (self.checks.${system}.pre-commit-check) shellHook;
 
             buildInputs =
