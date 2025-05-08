@@ -1,4 +1,4 @@
-on-unmatched = "info"
+excludes = [".envrc", ".gitignore", "LICENSE", "*.lock"]
 
 [formatter.nix]
 command = "nixfmt"
